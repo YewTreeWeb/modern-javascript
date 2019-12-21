@@ -181,8 +181,7 @@ $RECYCLE.BIN/
 ### Yeoman ###
 bower_components/
 
-build/
+### Build folder
 dist/
-reports/
 
 # End of https://www.gitignore.io/api/node,sass,adobe,linux,bower,macos,yeoman,jekyll,windows
