@@ -1,0 +1,40 @@
+browsersync:
+  debug: true
+  notify: true
+  open: false
+  port: 3000
+  preferences:
+    clicks: false
+    scroll: false
+
+copy:
+  html:
+    dest: "./dist"
+    src: "./src/*.html"
+  vendors:
+    css: "./dist/assets/css"
+    js: "./dist/assets/js"
+    src: "./src/vendors/**/*"
+
+fonts:
+  dest: "./dist/assets/fonts"
+  src: "./src/fonts/*"
+
+js:
+  dest: "./dist/assets/js"
+  src: "./src/js/main.js"
+
+sass:
+  dest: "./dist/assets/styles"
+  src: "./src/styles/main.scss"
+
+vendors:
+  dest: "./src/vendors"
+  notification: "No dependencies found."
+
+### Watch files
+watch:
+  fonts: "./src/assets/fonts/*"
+  js: "./src/assets/js/**/*.js"
+  html: "./src/*.html"
+  scss: "./src/assets/scss/**/*.scss"
