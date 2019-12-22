@@ -1,0 +1,12 @@
+@import '../vendors/bulma/bulma.sass';
+
+.navbar-brand {
+	width: 100px;
+	> .navbar-item {
+		width: 100%;
+		img {
+			max-height: 80px;
+			width: 100%;
+		}
+	}
+}

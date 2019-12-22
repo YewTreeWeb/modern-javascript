@@ -6,6 +6,12 @@ import webpackStream from 'webpack-stream';
 import named from 'vinyl-named';
 import browserSync from 'browser-sync';
 import plugins from 'gulp-load-plugins';
+import pngquant from 'imagemin-pngquant';
+import zopfli from 'imagemin-zopfli';
+import giflossy from 'imagemin-giflossy';
+import mozjpeg from 'imagemin-mozjpeg';
+import webp from 'imagemin-webp';
+import extReplace from 'gulp-ext-replace';
 import del from 'del';
 import read from 'read-yaml';
 import shell from 'shelljs';
@@ -235,6 +241,84 @@ export const fonts = (done) => {
 };
 
 /**
+ * Images
+ */
+export const images = () => {
+	return src(config.image.src, { allowEmpty: true, since: lastRun(images) })
+		.pipe($.plumber())
+		.pipe($.changed(config.image.dest))
+		.pipe(
+			$.cache(
+				$.imagemin(
+					[
+						$.imagemin.jpegtran({
+							progressive: true
+						}),
+						pngquant({
+							speed: 1,
+							quality: [ 0.5, 0.5 ] // lossy settings
+						}),
+						zopfli({
+							more: true
+						}),
+						giflossy({
+							optimizationLevel: 3,
+							optimize: 3, // keep-empty: Preserve empty transparent frames
+							lossy: 2
+						}),
+						$.imagemin.svgo({
+							plugins: [
+								{
+									removeViewBox: true
+								},
+								{
+									cleanupIDs: true
+								}
+							]
+						}),
+						mozjpeg({
+							quality: 90
+						})
+					],
+					{
+						verbose: true
+					}
+				)
+			)
+		)
+		.pipe(dest(config.image.dest))
+		.pipe(
+			$.size({
+				title: 'images'
+			})
+		);
+};
+
+/**
+ * Convert to .webp
+ */
+export const webpImg = () => {
+	return src(config.image.webp, { since: lastRun(webpImg) })
+		.pipe($.plumber())
+		.pipe(
+			$.cache(
+				$.imagemin([
+					webp({
+						quality: 75
+					})
+				])
+			)
+		)
+		.pipe(extReplace('.webp'))
+		.pipe(
+			$.size({
+				title: 'Coverted to webp'
+			})
+		)
+		.pipe(dest(config.image.dest));
+};
+
+/**
  * Reload browser
  */
 export const reload = (done) => {
@@ -270,6 +354,7 @@ export const serve = (done) => {
 	watch(config.watch.js).on('add', series(js, reload)).on('change', series(js, reload));
 	watch(config.watch.html, series('copyHtml', reload));
 	watch(config.watch.fonts).on('add', series(fonts, reload)).on('change', series(fonts, reload));
+	watch(config.watch.images, series(images, webpImg, reload));
 };
 
 /**
@@ -288,14 +373,20 @@ export const build = series(
 	env,
 	parallel(clean_dist, clean_cache),
 	vendorTask,
-	parallel(sass, js, fonts, copyHtml),
-	html,
+	parallel(sass, js, fonts, images, copyHtml),
+	parallel(webpImg, html),
 	deploy
 );
 
 /**
  * Default
  */
-export const dev = series(parallel(env, clean_dist), vendorTask, parallel(sass, js, fonts, copyHtml), serve);
+export const dev = series(
+	parallel(env, clean_dist),
+	vendorTask,
+	parallel(sass, js, fonts, images, copyHtml),
+	webpImg,
+	serve
+);
 
 export default dev;
