@@ -42,6 +42,56 @@ console.log(result);
 let index = email.indexOf('@');
 console.log('index is: ' + index);
 
+/* Math operators
+    + = plus
+    - = takeaway
+    * = times
+    / = divide
+    ** = power of
+    % = remainder
+*/
+// Adding one shorthand ++
+// Subtracting one shorthand --
+// += adds on the value to the current
+// -= subtracts the value from the current etc.
+let likes = 10;
+
+//likes++;
+// likes--;
+// likes+=;
+// likes-=;
+// likes*=;
+// likes/=;
+
+console.log(likes);
+
+// Nan = not a number
+
+/* Template Strings */
+const title = 'The best of...'
+const author = 'Mathew Teague'
+
+let concatResult = 'The blog called ' + title + ' by ' + author + ' has ' + likes + ' likes.';
+let templateResult = `The blog called ${title} by ${author} has ${likes} likes.`;
+
+// console.log(concatResult);
+console.log(templateResult);
+
+let htmlContent = `
+    <h2>${title}</h2>
+    <p>By ${author}</p>
+    <p class="small">This blog has ${likes} likes.</p>
+`;
+
+const col = document.querySelector('.section .column');
+col.innerHTML = htmlContent;
+
+/* Boolean */
+const booleanResult = email.includes('@');
+console.log(booleanResult);
+
+console.log(age === 30);
+
 /* Define default vars */
 const html = document.getElementsByTagName('html')[0];
 const body = document.getElementsByTagName('body')[0];
