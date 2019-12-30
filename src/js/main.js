@@ -42,6 +42,31 @@ console.log(result);
 let index = email.indexOf('@');
 console.log('index is: ' + index);
 
+/* Common string methods */
+
+let emailResult = email.lastIndexOf('m');
+console.log('Last result is: ' + emailResult);
+
+let emailSlice = email.slice(2, 5); // 2 starts from, 5 slice until
+console.log(emailSlice);
+
+let emailSubstr = email.substr(2, 5); // 2 starts from, 5 slice until
+console.log(emailSubstr); // starts from, to position
+
+email = email.replace('gmail', 'outlook');
+console.log(email);
+
+/* Numbers */
+
+let likes = 10;
+likes++;
+console.log(likes);
+
+likes += 10;
+console.log(likes);
+
+// Tip: NaN = Not a Number
+
 /* Define default vars */
 const html = document.getElementsByTagName('html')[0];
 const body = document.getElementsByTagName('body')[0];
