@@ -31,11 +31,11 @@ image:
 
 js:
   dest: "./dist/assets/js"
-  src: "./src/js/main.js"
+  src: "./src/js/sandbox.js"
 
 sass:
   dest: "./dist/assets/styles"
-  src: "./src/styles/main.scss"
+  src: "./src/styles/sandbox.scss"
 
 vendors:
   dest: "./src/vendors"
