@@ -191,7 +191,28 @@ const speak = function() {
 };
 speak(); // Cannot call before function
 
+// Arguments & Parameters
+const speak2 = (name = 'Bob', day = 'morning') => {
+	console.log(`good ${day} ${name}`);
+};
+speak2('Naruto', 'night');
+
+// Returning Values
+const calc = (radius) => 3.8989 * radius ** 2;
+const area = calc(5);
+console.log('area is: ' + area);
+
+// Foreach Methods & Callbacks
+const people = [ 'mark', 'henry', 'george', 'lenny', 'hugo', 'jekyll', 'hyde' ];
+
+const ul = document.querySelector('.testlist');
+let html = ``;
+
+people.forEach((person) => {
+	html += `<li class="testlist__item">${person.toLowerCase()}</li>`;
+});
+ul.innerHTML = html;
+
 /* Define default vars */
-const html = document.getElementsByTagName('html')[0];
 const body = document.getElementsByTagName('body')[0];
 console.info(body);
