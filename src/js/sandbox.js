@@ -234,7 +234,7 @@ let user = {
   logBlogs() { // if set the => the 'this' will be set to the global function not within the user object.
     this.blogs.forEach(blog => {
       console.log(blog.title, blog.likes);
-    }); // this referes to the user object.
+    }); // this referes to the user object - user. e.g. this user.
   }
 };
 
