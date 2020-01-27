@@ -265,4 +265,17 @@ console.log(Math.round(random * 100))
 
 /* Define default vars */
 const body = document.getElementsByTagName('body')[0];
+const url = document.URL;
 console.info(body);
+console.info(url);
+
+/* Dom Manipulation */
+const para = document.querySelector('.content__bottom p'); // Selects only one p tag item.
+const paras = document.querySelectorAll('.content__bottom p'); // Selects all p tag items. Isn't an array but can do things like an array.
+
+console.log(para);
+console.log(paras[1]);
+
+paras.forEach(para => console.log(para));
+
+const contents = document.getElementsByClassName('content'); // Creates a HTML collection. // This is not the same as a node list such as querySelectorAll. Can't do forEach loops with collections.
