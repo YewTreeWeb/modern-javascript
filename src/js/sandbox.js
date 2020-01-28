@@ -338,6 +338,7 @@ console.log(articleTitle.previousElementSibling);
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
 	console.log('You clicked me.');
+	button.classList.toggle('is-light');
 });
 
 const listItems = document.querySelectorAll('.todoList li');

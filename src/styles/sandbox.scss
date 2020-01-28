@@ -38,6 +38,11 @@
 }
 
 .content {
+	&__top,
+	&__middle,
+	&__bottom {
+		padding: 3rem 1rem;
+	}
 	&__middle {
 		li {
 			list-style-type: none;
@@ -46,11 +51,6 @@
 			margin: 8px 0;
 			background: #eee;
 			border: 1px dotted #ddd;
-		}
-		button {
-			width: fit-content;
-			padding: 20px;
-			font-size: 20px;
 		}
 	}
 }
