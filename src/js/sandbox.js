@@ -335,16 +335,51 @@ console.log(articleTitle.previousElementSibling);
 
 /* Basic Events */
 
-const button = document.querySelector('button');
+const list = document.querySelector('.todoList');
+const listItems = document.querySelectorAll('.todoList li');
+
+const button = document.querySelector('button.is-info');
+const buttonRemove = document.querySelector('button.is-danger');
+
 button.addEventListener('click', () => {
+	const li = document.createElement('li');
 	console.log('You clicked me.');
 	button.classList.toggle('is-light');
+	li.textContent = 'something new';
+	list.append(li);
 });
 
-const listItems = document.querySelectorAll('.todoList li');
-listItems.forEach((item) => {
-	item.addEventListener('click', (el) => {
-		console.log(el.target);
-		el.target.style.textDecoration = 'line-through';
+buttonRemove.addEventListener('click', () => {
+	console.log('You removed an item.');
+	console.log(list.children);
+	Array.from(list.children).forEach((child) => {
+		if (child.style.textDecoration.includes('line-through')) {
+			child.remove();
+		}
 	});
+});
+
+// listItems.forEach((item) => {
+// 	item.addEventListener('click', (el) => {
+// 		console.log(el.target);
+// 		el.stopPropagation(); // Stops the even bubbling up to the parent.
+// 		if (item.style.textDecoration.includes('line-through')) {
+// 			el.target.style.textDecoration = '';
+// 		} else {
+// 			el.target.style.textDecoration = 'line-through';
+// 		}
+// 	});
+// });
+
+list.addEventListener('click', (e) => {
+	// Event delegation. Stops events being assigned to each element and will work with newly generated ones.
+	console.log(e.target);
+	e.stopPropagation(); // Stops the even bubbling up to the parent.
+	if (e.target.tagName === 'LI') {
+		if (e.target.style.textDecoration.includes('line-through')) {
+			e.target.style.textDecoration = '';
+		} else {
+			e.target.style.textDecoration = 'line-through';
+		}
+	}
 });
