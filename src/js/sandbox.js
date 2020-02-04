@@ -383,3 +383,37 @@ list.addEventListener('click', (e) => {
 		}
 	}
 });
+
+// Copy event
+const copy = document.querySelector('.content__bottom h3');
+
+copy.addEventListener('copy', () => {
+	console.log('copied!');
+});
+
+// Mouse move
+const move = document.querySelector('.hero-body');
+const pos = document.createElement('p');
+pos.textContent = '';
+move.append(pos);
+move.addEventListener('mousemove', (e) => {
+	// console.log(e.offsetX, e.offsetY);
+	pos.textContent = `X Pos - ${e.offsetX} Y Pos - ${e.offsetY}`;
+});
+
+// Wheel
+const wheel = document.createElement('p');
+wheel.textContent = '';
+move.append(wheel);
+document.addEventListener('wheel', (e) => {
+	wheel.textContent = `Page X - ${e.pageX} Page Y - ${e.pageY}`;
+});
+
+/* Popup */
+const pop = document.querySelector('.pop');
+const popup = document.querySelector('.popup-wrapper');
+const close = document.querySelector('.popup-close');
+
+pop.addEventListener('click', () => (popup.style.display = 'block'));
+close.addEventListener('click', () => (popup.style.display = 'none'));
+popup.addEventListener('click', () => (popup.style.display = 'none'));
