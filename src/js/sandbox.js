@@ -417,3 +417,44 @@ const close = document.querySelector('.popup-close');
 pop.addEventListener('click', () => (popup.style.display = 'block'));
 close.addEventListener('click', () => (popup.style.display = 'none'));
 popup.addEventListener('click', () => (popup.style.display = 'none'));
+
+/* Forms */
+const form = document.querySelector('.signup-form');
+const feedback = document.querySelector('.signup-form .feedback');
+// const username = document.querySelector('#username');
+const userPattern = /^[a-zA-Z]{6,12}$/; // Checks if username doesn't have any other characters before or after and is a lengeth between 6 and 12 characters.
+
+// test the results:
+// let patternResult = userPattern.test(formUser);
+// let patternResult = userName.search(pattern);
+// console.info(patternResult);
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	// console.log(username.value);
+	console.log(form.username.value); // dot notation with forms
+	const formUser = form.username.value;
+	const patternResult = userPattern.test(formUser);
+	if (patternResult) {
+		// Feedback success
+		feedback.textContent = 'Vaild username';
+		feedback.classList.remove('error');
+		feedback.classList.add('success');
+	} else {
+		// Feedback fail
+		feedback.textContent = 'Invalid username';
+		feedback.classList.remove('success');
+		feedback.classList.add('error');
+	}
+});
+
+// Live Feedback form
+form.username.addEventListener('keyup', (e) => {
+	console.log(e.target.value);
+	const userValue = userPattern.test(e.target.value);
+	if (userValue) {
+		form.username.setAttribute('class', 'success');
+	} else {
+		form.username.setAttribute('class', 'error');
+	}
+});
