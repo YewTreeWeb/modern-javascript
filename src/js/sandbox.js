@@ -458,3 +458,129 @@ form.username.addEventListener('keyup', (e) => {
 		form.username.setAttribute('class', 'error');
 	}
 });
+
+/* Filters */
+const filterScores = [ 10, 30, 15, 25, 50, 40, 5 ];
+
+const filteredScores = filterScores.filter((score) => score > 20);
+
+console.log('Filter Array: ' + filterScores);
+console.log('Filtered Array: ' + filteredScores);
+
+// Get products
+const products = [
+	{
+		name: 'Yoshi',
+		sale: true,
+		price: 20
+	},
+	{
+		name: 'Mario',
+		sale: false,
+		price: 40
+	},
+	{
+		name: 'Luigi',
+		sale: false,
+		price: 56
+	},
+	{
+		name: 'Lee',
+		sale: true,
+		price: 35
+	}
+];
+
+const productSales = products.filter((product) => product.sale);
+console.log(productSales);
+
+// Map cycles through an array and creates a new array
+const prices = [ 20, 10, 5, 15, 25, 30, 66, 89 ];
+const salePrices = prices.map((price) => price / 2);
+console.log(salePrices);
+
+const saleProducts = products.map((product) => {
+	if (product.price > 30) {
+		return { name: product.name, price: product.price / 2, forSale: product.sale };
+	} else {
+		return product;
+	}
+});
+console.log(saleProducts);
+
+// reduce the array and returns a number based on the original array
+// acc = accumilator
+// curr = current
+const highPrices = prices.reduce((acc, curr) => {
+	if (curr > 20) {
+		acc++;
+	}
+	return acc;
+}, 0);
+console.log(highPrices);
+
+const playerScores = [
+	{ player: 'mario', score: 50 },
+	{ player: 'yoshi', score: 30 },
+	{ player: 'mario', score: 44 },
+	{ player: 'yoshi', score: 58 },
+	{ player: 'mario', score: 70 },
+	{ player: 'crystal', score: 60 },
+	{ player: 'mario', score: 98 },
+	{ player: 'crystal', score: 76 },
+	{ player: 'mario', score: 23 }
+];
+
+const totalScores = playerScores.reduce((acc, curr) => {
+	if (curr.player === 'mario') {
+		acc += curr.score;
+	}
+	return acc;
+}, 0);
+console.log(`Mario's total score: ${totalScores}`);
+
+// itterates an item and will return the first value then stops
+const firstHighScore = playerScores.find((score) => {
+	return score.score > 60;
+});
+console.log(firstHighScore);
+
+// Sort by property
+const names = [ 'mario', 'shaun', 'chun-li', 'yoshi', 'luigi' ];
+
+names.sort();
+console.log(names);
+names.reverse();
+console.log(names);
+names.sort();
+names.reverse();
+console.log(names);
+
+playerScores.sort((a, b) => {
+	if (a.score > b.score) {
+		return -1;
+	} else if (b.score > a.score) {
+		return 1;
+	} else {
+		return 0;
+	}
+});
+
+// Does the same as above sort
+playerScores.sort((a, b) => b.score - a.score);
+prices.sort((a, b) => a - b);
+
+console.log(playerScores);
+console.log(prices);
+
+// Chaining Array methods together
+// const filtered = products.filter((product) => product.price > 20);
+// const promos = filtered.map((product) => {
+// 	return `the ${product.name} is ${product.price / 2} pounds`;
+// });
+
+const promos = products
+	.filter((product) => product.price > 20)
+	.map((product) => `the ${product.name} is ${product.price / 2} pounds`);
+
+console.log(promos);
