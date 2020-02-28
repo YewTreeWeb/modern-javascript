@@ -1,5 +1,6 @@
 // Import externals
 import 'airbnb-browser-shims';
+import { isToday, format } from 'date-fns';
 
 // Import internals
 import './modules/helpers';
@@ -584,3 +585,56 @@ const promos = products
 	.map((product) => `the ${product.name} is ${product.price / 2} pounds`);
 
 console.log(promos);
+
+/* Dates */
+const before = new Date('February 28 2020 8:53:00');
+const now = new Date();
+console.log(now);
+console.log(typeof now);
+
+// years, months, day, times
+console.log('Get full year: ', now.getFullYear());
+console.log('Get month: ', now.getMonth());
+console.log('Get day: ', now.getDay());
+console.log('Get hours: ', now.getHours());
+console.log('Get minutes: ', now.getMinutes());
+console.log('Get seconds: ', now.getSeconds());
+
+// timestamp
+console.log('Get timestamp: ', now.getTime()); // Number of milliseconds since 12am - 1st Jan 1970
+const diff = now.getTime() - before.getTime();
+const mins = Math.round(diff / 1000 / 60);
+const hours = Math.round(mins / 60);
+const days = Math.round(hours / 24);
+console.log('Difference between now and before: ', diff);
+console.log('Difference between now and before in mins: ', mins);
+console.log('Difference between now and before in hours: ', hours);
+console.log('Difference between now and before in days: ', days);
+
+// date stringss
+console.log('Get date: ', now.toDateString());
+console.log('Get time: ', now.toTimeString());
+console.log('Get local: ', now.toLocaleString());
+
+// Digital Clock
+const clock = document.querySelector('.clock');
+const tick = () => {
+	const currentTime = new Date();
+	const h = currentTime.getHours();
+	const m = currentTime.getMinutes();
+	const s = currentTime.getSeconds();
+
+	const clockHtml = `
+		<span>${h}</span> :
+		<span>${m}</span> :
+		<span>${s}</span>
+	`;
+
+	clock.innerHTML = clockHtml;
+};
+
+setInterval(tick, 1000);
+
+// Date formatting
+console.log(isToday(now));
+console.log(format(now, 'dd, Do, MMMM, yyyy'));

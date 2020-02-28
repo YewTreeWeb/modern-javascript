@@ -10,6 +10,7 @@
     "airbnb-browser-shims": "^3.3.0",
     "bulma": "^0.8.0",
     "codyhouse-framework": "^2.2.4",
+    "date-fns": "^2.10.0",
     "include-media": "^1.4.9",
     "system-font-css": "^2.0.2"
   },
