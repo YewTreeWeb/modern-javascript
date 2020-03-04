@@ -696,6 +696,22 @@ remoteTodos("https://jsonplaceholder.typicode.com/todos/")
     console.error("promise rejected: ", err);
   });
 
+// Chaining promises
+remoteTodos("data/luigi.json")
+  .then(data => {
+    console.log("promise resolved: ", data);
+    return remoteTodos("data/maria.json")
+      .then(data => {
+        console.log("promise resolved: ", data);
+      })
+      .catch(err => {
+        console.error("promise rejected: ", err);
+      });
+  })
+  .catch(err => {
+    console.error("promise rejected: ", err);
+  });
+
 // Promises
 // Stops need for nested callbacks a.k.a callback hell.
 const getSomething = () => {
@@ -723,3 +739,30 @@ getSomething()
   .catch(err => {
     console.error(err);
   });
+
+/* Fetch API */
+fetch("https://jsonplaceholder.typicode.com/todos/")
+  .then(response => {
+    console.log("resolved", response);
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(err => {
+    console.error("rejected", err);
+  });
+
+/* Async & Await */
+
+const asyncTodos = async () => {
+  // Makes this function a promise.
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+asyncTodos()
+  .then(data => console.log("async resolved:", data))
+  .catch(err => console.error(err));
