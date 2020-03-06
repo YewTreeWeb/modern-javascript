@@ -757,9 +757,15 @@ fetch("https://jsonplaceholder.typicode.com/todos/")
 
 const asyncTodos = async () => {
   // Makes this function a promise.
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
-  const data = await response.json();
+  // await - waits for the JS to resolve.
   console.log(data);
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
+
+  if (data.status !== 200) {
+    throw new Error("Cannot fetch the todos!");
+  }
+
+  const data = await response.json();
   return data;
 };
 
