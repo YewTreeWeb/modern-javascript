@@ -697,6 +697,7 @@ remoteTodos("https://jsonplaceholder.typicode.com/todos/")
   });
 
 // Chaining promises
+/*
 remoteTodos("data/luigi.json")
   .then(data => {
     console.log("promise resolved: ", data);
@@ -711,6 +712,7 @@ remoteTodos("data/luigi.json")
   .catch(err => {
     console.error("promise rejected: ", err);
   });
+  */
 
 // Promises
 // Stops need for nested callbacks a.k.a callback hell.
@@ -772,3 +774,24 @@ const asyncTodos = async () => {
 asyncTodos()
   .then(data => console.log("async resolved:", data))
   .catch(err => console.error(err));
+
+/* Local Storage */
+
+// store data in local storage.
+localStorage.setItem("name", "mario");
+
+// deleting data from local storage.
+localStorage.removeItem("name"); // deletes one item
+// localStorage.clear(); // deletes all
+
+const jobList = [
+  { text: "play mariokart", author: "Mat" },
+  { text: "buy milk", author: "Mario" },
+  { text: "Do plumbing", author: "Luigi" }
+];
+
+localStorage.setItem("jobs", JSON.stringify(jobList));
+
+const stored = localStorage.getItem("jobs");
+
+console.log(JSON.parse(stored));
