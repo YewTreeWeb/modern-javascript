@@ -795,3 +795,31 @@ localStorage.setItem("jobs", JSON.stringify(jobList));
 const stored = localStorage.getItem("jobs");
 
 console.log(JSON.parse(stored));
+ 
+/* OOP */
+
+// Create array
+const namesArray = ['Mat', 'Alice', 'Lily'] // Traditional way
+const agesArray = new Array(30,19,1) // Array constructor
+
+const userOne = {} // object literal
+const userTwo = new Object() // constructor
+
+const nameTwo = new String('Josh') // Creates a wrapper object of the string
+
+/// Object literals
+const userObjects = {
+  username: 'Alice',
+  email: 'a.teague@outlook.com',
+  login () {
+    console.log('User logged in')
+  },
+  logout() {
+    console.log('User logged out');
+  }
+}
+
+console.log(userObjects.username);
+userObjects.login();
+
+const userObjectTwo = new User('Lily', 'lily@outlook.com');
