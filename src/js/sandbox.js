@@ -795,31 +795,110 @@ localStorage.setItem("jobs", JSON.stringify(jobList));
 const stored = localStorage.getItem("jobs");
 
 console.log(JSON.parse(stored));
- 
+
 /* OOP */
 
 // Create array
-const namesArray = ['Mat', 'Alice', 'Lily'] // Traditional way
-const agesArray = new Array(30,19,1) // Array constructor
+const namesArray = ["Mat", "Alice", "Lily"]; // Traditional way
+const agesArray = new Array(30, 19, 1); // Array constructor
 
-const userOne = {} // object literal
-const userTwo = new Object() // constructor
+const userArrayOne = {}; // object literal
+const userArrayTwo = new Object(); // constructor
 
-const nameTwo = new String('Josh') // Creates a wrapper object of the string
+const nameArrayTwo = new String("Josh"); // Creates a wrapper object of the string
 
 /// Object literals
 const userObjects = {
-  username: 'Alice',
-  email: 'a.teague@outlook.com',
-  login () {
-    console.log('User logged in')
+  username: "Alice",
+  email: "a.teague@outlook.com",
+  login() {
+    console.log("User logged in");
   },
   logout() {
-    console.log('User logged out');
+    console.log("User logged out");
   }
-}
+};
 
 console.log(userObjects.username);
 userObjects.login();
 
-const userObjectTwo = new User('Lily', 'lily@outlook.com');
+/* Classes */
+class User {
+  constructor(username, email) {
+    // set up properties
+    this.username = username;
+    this.email = email;
+    this.score = 0;
+  }
+
+  login() {
+    console.log(`${this.username} just logged in`);
+    return this;
+  }
+  logout() {
+    console.log(`${this.username} just logged out`);
+    return this;
+  }
+  incScore() {
+    this.score += 1;
+    console.log(`${this.username} has a score of ${this.score}.`);
+    return this;
+  }
+}
+
+class Admin extends User {
+  // adding extra properties
+  constructor(username, email, role) {
+    super(username, email); // Attaches properties from User.
+    this.role = role;
+  }
+  deleteUser(user) {
+    classUsers = classUsers.filter(u => {
+      return u.username !== user.username;
+    });
+  }
+}
+
+/**
+ * the 'new' keyword
+ * 1 - it creates a new empty object {}
+ * 2 - it binds the value of 'this' to the new empty object
+ * 3 - it calls the constructor function to 'build' the object
+ */
+const userOne = new User("mario", "mario@example.com");
+const userTwo = new User("luigi", "luigi@example.com");
+const userThree = new Admin("Mat", "mathew.teague@yewtreeweb.co.uk", "Admin");
+
+console.log(userOne, userTwo, userThree);
+userOne
+  .login()
+  .incScore()
+  .incScore()
+  .logout();
+userTwo
+  .login()
+  .incScore()
+  .logout();
+
+let classUsers = [userOne, userTwo, userThree];
+console.log(classUsers);
+
+userThree.deleteUser(userTwo);
+console.log(classUsers);
+
+/* Constructors */
+
+// original way before class
+function Users(username, email) {
+  this.username = username;
+  this.email = email;
+  this.login = function() {
+    console.log(`${this.username} just logged in`);
+  };
+}
+
+const usersOne = new Users("Alice", "alice@outlook.com");
+const usersTwo = new Users("Lily", "lily@outlook.com");
+
+console.log(usersOne, usersTwo);
+usersOne.login();
