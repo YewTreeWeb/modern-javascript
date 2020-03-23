@@ -831,6 +831,7 @@ class User {
     this.score = 0;
   }
 
+  // classes automatically stores the objects in prototype.
   login() {
     console.log(`${this.username} just logged in`);
     return this;
@@ -892,13 +893,32 @@ console.log(classUsers);
 function Users(username, email) {
   this.username = username;
   this.email = email;
-  this.login = function() {
-    console.log(`${this.username} just logged in`);
-  };
 }
+
+Users.prototype.login = function() {
+  console.log(`${this.username} just logged in`)
+  return this; // Alloe chaining
+}
+Users.prototype.logout = function() {
+  console.log(`${this.username} just logged out`)
+  return this;
+}
+
+function AdminUsers(username, email) {
+  Users.call(this, username, email);
+  this.role = role;
+};
+
+AdminUsers.prototype = Object.create(Users.prototype);
+AdminUsers.prototype.deleteUsers = function() {};
 
 const usersOne = new Users("Alice", "alice@outlook.com");
 const usersTwo = new Users("Lily", "lily@outlook.com");
+const usersThree = new AdminUsers("Mat", "mathew.teague@outlook.com", "Admin");
 
 console.log(usersOne, usersTwo);
 usersOne.login();
+
+/**
+ * Prototype is more efficent as it saves objects in oneplace.
+ */
