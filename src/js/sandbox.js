@@ -896,18 +896,18 @@ function Users(username, email) {
 }
 
 Users.prototype.login = function() {
-  console.log(`${this.username} just logged in`)
+  console.log(`${this.username} just logged in`);
   return this; // Alloe chaining
-}
+};
 Users.prototype.logout = function() {
-  console.log(`${this.username} just logged out`)
+  console.log(`${this.username} just logged out`);
   return this;
-}
+};
 
 function AdminUsers(username, email) {
   Users.call(this, username, email);
   this.role = role;
-};
+}
 
 AdminUsers.prototype = Object.create(Users.prototype);
 AdminUsers.prototype.deleteUsers = function() {};

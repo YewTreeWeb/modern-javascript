@@ -10,6 +10,7 @@ import pngquant from 'imagemin-pngquant';
 import zopfli from 'imagemin-zopfli';
 import giflossy from 'imagemin-giflossy';
 import mozjpeg from 'imagemin-mozjpeg';
+import jpegtran from 'imagemin-jpegtran';
 import webp from 'imagemin-webp';
 import extReplace from 'gulp-ext-replace';
 import del from 'del';
@@ -251,7 +252,7 @@ export const images = () => {
 			$.cache(
 				$.imagemin(
 					[
-						$.imagemin.jpegtran({
+						jpegtran({
 							progressive: true
 						}),
 						pngquant({
