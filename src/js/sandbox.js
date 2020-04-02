@@ -188,11 +188,7 @@ function greet() {
 greet(); // Can call above function.
 
 // Function Expression
-<<<<<<< HEAD
 const speak = function() {
-=======
-const speak = function () {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   console.log("Good day");
 };
 speak(); // Cannot call before function
@@ -214,11 +210,7 @@ const people = ["mark", "henry", "george", "lenny", "hugo", "jekyll", "hyde"];
 const ul = document.querySelector(".testlist");
 let html = ``;
 
-<<<<<<< HEAD
 people.forEach(person => {
-=======
-people.forEach((person) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   html += `<li class="testlist__item">${person.toLowerCase()}</li>`;
 });
 ul.innerHTML = html;
@@ -233,41 +225,24 @@ let user = {
   blogs: [
     {
       title: "Hello",
-<<<<<<< HEAD
       likes: 20
     },
     {
       title: "World",
       likes: 40
     }
-=======
-      likes: 20,
-    },
-    {
-      title: "World",
-      likes: 40,
-    },
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   ],
   login: () => console.log("user logged in!"),
   logout: () => console.log("user logged out!"),
   logBlogs() {
     // Method instead of object.
     // if set the => the 'this' will be set to the global function not within the user object.
-<<<<<<< HEAD
     this.blogs.forEach(blog =>
-=======
-    this.blogs.forEach((blog) =>
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
       console.log(
         `Blog title is: ${blog.title}. Number of likes are: ${blog.likes}`
       )
     ); // this referes to the user object - user. e.g. this user.
-<<<<<<< HEAD
   }
-=======
-  },
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
 };
 
 console.log(user);
@@ -331,11 +306,7 @@ siteTitle.classList.add("title--lg");
 
 /* Grabs all p tags and checks if they have the words success or error and then apply the correct class to them. */
 const paraTags = document.querySelectorAll(".content__middle p");
-<<<<<<< HEAD
 paraTags.forEach(paraTag => {
-=======
-paraTags.forEach((paraTag) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   try {
     // If use innerText all visible text within element is got. So no text within a sub element.
     // To get all text use textContent.
@@ -358,11 +329,7 @@ const article = document.querySelector("article");
 console.log(article.children);
 
 // Array.from turns collection into an array.
-<<<<<<< HEAD
 Array.from(article.children).forEach(child =>
-=======
-Array.from(article.children).forEach((child) =>
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   child.classList.add("article-element")
 );
 
@@ -393,11 +360,7 @@ button.addEventListener("click", () => {
 buttonRemove.addEventListener("click", () => {
   console.log("You removed an item.");
   console.log(list.children);
-<<<<<<< HEAD
   Array.from(list.children).forEach(child => {
-=======
-  Array.from(list.children).forEach((child) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
     if (child.style.textDecoration.includes("line-through")) {
       child.remove();
     }
@@ -416,11 +379,7 @@ buttonRemove.addEventListener("click", () => {
 // 	});
 // });
 
-<<<<<<< HEAD
 list.addEventListener("click", e => {
-=======
-list.addEventListener("click", (e) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   // Event delegation. Stops events being assigned to each element and will work with newly generated ones.
   console.log(e.target);
   e.stopPropagation(); // Stops the even bubbling up to the parent.
@@ -445,11 +404,7 @@ const move = document.querySelector(".hero-body");
 const pos = document.createElement("p");
 pos.textContent = "";
 move.append(pos);
-<<<<<<< HEAD
 move.addEventListener("mousemove", e => {
-=======
-move.addEventListener("mousemove", (e) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   // console.log(e.offsetX, e.offsetY);
   pos.textContent = `X Pos - ${e.offsetX} Y Pos - ${e.offsetY}`;
 });
@@ -458,11 +413,7 @@ move.addEventListener("mousemove", (e) => {
 const wheel = document.createElement("p");
 wheel.textContent = "";
 move.append(wheel);
-<<<<<<< HEAD
 document.addEventListener("wheel", e => {
-=======
-document.addEventListener("wheel", (e) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   wheel.textContent = `Page X - ${e.pageX} Page Y - ${e.pageY}`;
 });
 
@@ -486,11 +437,7 @@ const userPattern = /^[a-zA-Z]{6,12}$/; // Checks if username doesn't have any o
 // let patternResult = userName.search(pattern);
 // console.info(patternResult);
 
-<<<<<<< HEAD
 form.addEventListener("submit", e => {
-=======
-form.addEventListener("submit", (e) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   e.preventDefault();
   // console.log(username.value);
   console.log(form.username.value); // dot notation with forms
@@ -510,11 +457,7 @@ form.addEventListener("submit", (e) => {
 });
 
 // Live Feedback form
-<<<<<<< HEAD
 form.username.addEventListener("keyup", e => {
-=======
-form.username.addEventListener("keyup", (e) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   console.log(e.target.value);
   const userValue = userPattern.test(e.target.value);
   if (userValue) {
@@ -537,40 +480,23 @@ const products = [
   {
     name: "Yoshi",
     sale: true,
-<<<<<<< HEAD
     price: 20
-=======
-    price: 20,
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   },
   {
     name: "Mario",
     sale: false,
-<<<<<<< HEAD
     price: 40
-=======
-    price: 40,
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   },
   {
     name: "Luigi",
     sale: false,
-<<<<<<< HEAD
     price: 56
-=======
-    price: 56,
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   },
   {
     name: "Lee",
     sale: true,
-<<<<<<< HEAD
     price: 35
   }
-=======
-    price: 35,
-  },
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
 ];
 
 const productSales = products.filter(product => product.sale);
@@ -578,26 +504,15 @@ console.log(productSales);
 
 // Map cycles through an array and creates a new array
 const prices = [20, 10, 5, 15, 25, 30, 66, 89];
-<<<<<<< HEAD
 const salePrices = prices.map(price => price / 2);
 console.log(salePrices);
 
 const saleProducts = products.map(product => {
-=======
-const salePrices = prices.map((price) => price / 2);
-console.log(salePrices);
-
-const saleProducts = products.map((product) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   if (product.price > 30) {
     return {
       name: product.name,
       price: product.price / 2,
-<<<<<<< HEAD
       forSale: product.sale
-=======
-      forSale: product.sale,
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
     };
   } else {
     return product;
@@ -625,11 +540,7 @@ const playerScores = [
   { player: "crystal", score: 60 },
   { player: "mario", score: 98 },
   { player: "crystal", score: 76 },
-<<<<<<< HEAD
   { player: "mario", score: 23 }
-=======
-  { player: "mario", score: 23 },
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
 ];
 
 const totalScores = playerScores.reduce((acc, curr) => {
@@ -641,11 +552,7 @@ const totalScores = playerScores.reduce((acc, curr) => {
 console.log(`Mario's total score: ${totalScores}`);
 
 // itterates an item and will return the first value then stops
-<<<<<<< HEAD
 const firstHighScore = playerScores.find(score => {
-=======
-const firstHighScore = playerScores.find((score) => {
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
   return score.score > 60;
 });
 console.log(firstHighScore);
@@ -685,13 +592,8 @@ console.log(prices);
 // });
 
 const promos = products
-<<<<<<< HEAD
   .filter(product => product.price > 20)
   .map(product => `the ${product.name} is ${product.price / 2} pounds`);
-=======
-  .filter((product) => product.price > 20)
-  .map((product) => `the ${product.name} is ${product.price / 2} pounds`);
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
 
 console.log(promos);
 
@@ -749,19 +651,6 @@ console.log(isToday(now));
 console.log(format(now, "dd, Do, MMMM, yyyy"));
 
 /* Async JS */
-<<<<<<< HEAD
-const request = new XMLHttpRequest();
-
-request.addEventListener("readystatechange", () => {
-  // console.log(request, request.readyState);
-  if (request.readyState === 4) {
-    console.log(request.responseText);
-  }
-});
-
-request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
-request.send();
-=======
 
 // HTTP Requests
 /*
@@ -781,7 +670,7 @@ const remoteTodos = (resource, cb) => {
   request.send();
 };
 */
-const remoteTodos = (resource) => {
+const remoteTodos = resource => {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
 
@@ -800,10 +689,10 @@ const remoteTodos = (resource) => {
 };
 
 remoteTodos("https://jsonplaceholder.typicode.com/todos/")
-  .then((data) => {
+  .then(data => {
     console.log("promise resolved: ", data);
   })
-  .catch((err) => {
+  .catch(err => {
     console.error("promise rejected: ", err);
   });
 
@@ -846,23 +735,23 @@ const getSomething = () => {
 // );
 
 getSomething()
-  .then((data) => {
+  .then(data => {
     console.log(data);
   })
-  .catch((err) => {
+  .catch(err => {
     console.error(err);
   });
 
 /* Fetch API */
 fetch("https://jsonplaceholder.typicode.com/todos/")
-  .then((response) => {
+  .then(response => {
     console.log("resolved", response);
     return response.json();
   })
-  .then((data) => {
+  .then(data => {
     console.log(data);
   })
-  .catch((err) => {
+  .catch(err => {
     console.error("rejected", err);
   });
 
@@ -883,8 +772,8 @@ const asyncTodos = async () => {
 };
 
 asyncTodos()
-  .then((data) => console.log("async resolved:", data))
-  .catch((err) => console.error(err));
+  .then(data => console.log("async resolved:", data))
+  .catch(err => console.error(err));
 
 /* Local Storage */
 
@@ -898,7 +787,7 @@ localStorage.removeItem("name"); // deletes one item
 const jobList = [
   { text: "play mariokart", author: "Mat" },
   { text: "buy milk", author: "Mario" },
-  { text: "Do plumbing", author: "Luigi" },
+  { text: "Do plumbing", author: "Luigi" }
 ];
 
 localStorage.setItem("jobs", JSON.stringify(jobList));
@@ -927,7 +816,7 @@ const userObjects = {
   },
   logout() {
     console.log("User logged out");
-  },
+  }
 };
 
 console.log(userObjects.username);
@@ -965,7 +854,7 @@ class Admin extends User {
     this.role = role;
   }
   deleteUser(user) {
-    classUsers = classUsers.filter((u) => {
+    classUsers = classUsers.filter(u => {
       return u.username !== user.username;
     });
   }
@@ -982,8 +871,15 @@ const userTwo = new User("luigi", "luigi@example.com");
 const userThree = new Admin("Mat", "mathew.teague@yewtreeweb.co.uk", "Admin");
 
 console.log(userOne, userTwo, userThree);
-userOne.login().incScore().incScore().logout();
-userTwo.login().incScore().logout();
+userOne
+  .login()
+  .incScore()
+  .incScore()
+  .logout();
+userTwo
+  .login()
+  .incScore()
+  .logout();
 
 let classUsers = [userOne, userTwo, userThree];
 console.log(classUsers);
@@ -999,11 +895,11 @@ function Users(username, email) {
   this.email = email;
 }
 
-Users.prototype.login = function () {
+Users.prototype.login = function() {
   console.log(`${this.username} just logged in`);
   return this; // Alloe chaining
 };
-Users.prototype.logout = function () {
+Users.prototype.logout = function() {
   console.log(`${this.username} just logged out`);
   return this;
 };
@@ -1014,7 +910,7 @@ function AdminUsers(username, email, role) {
 }
 
 AdminUsers.prototype = Object.create(Users.prototype);
-AdminUsers.prototype.deleteUsers = function () {};
+AdminUsers.prototype.deleteUsers = function() {};
 
 const usersOne = new Users("Alice", "alice@outlook.com");
 const usersTwo = new Users("Lily", "lily@outlook.com");
@@ -1031,7 +927,7 @@ usersOne.login();
 console.log("rescipes firestore");
 const recipes = document.querySelector(".recipes");
 
-const addRecipe = (recipe) => {
+const addRecipe = recipe => {
   const created = recipe.created_at.toDate();
   let html = `
     <li><p>${recipe.title} - <span>created at: ${created}</span</p></li>
@@ -1042,10 +938,9 @@ const addRecipe = (recipe) => {
 
 db.collection("recipes")
   .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
+  .then(snapshot => {
+    snapshot.docs.forEach(doc => {
       addRecipe(doc.data());
     });
   })
-  .catch((err) => console.error(err));
->>>>>>> bb18ddbfcde371748ad304656c882a187036216b
+  .catch(err => console.error(err));
