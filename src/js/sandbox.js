@@ -1,9 +1,9 @@
 // Import externals
-import 'airbnb-browser-shims';
-import { isToday, format } from 'date-fns';
+import "airbnb-browser-shims";
+import { isToday, format } from "date-fns";
 
 // Import internals
-import './modules/helpers';
+import "./modules/helpers";
 
 console.log("Let's go!");
 
@@ -19,13 +19,13 @@ const points = 100;
 console.log(points);
 
 // Strings
-let email = 'mathew.teague@gmail.com';
+let email = "mathew.teague@gmail.com";
 console.log(email);
 
-let firstName = 'Mathew';
-let lastName = 'Teague';
+let firstName = "Mathew";
+let lastName = "Teague";
 
-let fullName = firstName + ' ' + lastName;
+let fullName = firstName + " " + lastName;
 console.log(fullName);
 
 // Getting characters
@@ -40,8 +40,8 @@ console.log(fullName.toUpperCase());
 let result = fullName.toLowerCase();
 console.log(result);
 
-let index = email.indexOf('@');
-console.log('index is: ' + index);
+let index = email.indexOf("@");
+console.log("index is: " + index);
 
 /* Math operators
     + = plus
@@ -69,10 +69,11 @@ console.log(likes);
 // Nan = not a number
 
 /* Template Strings */
-const title = 'The best of...';
-const author = 'Mathew Teague';
+const title = "The best of...";
+const author = "Mathew Teague";
 
-let concatResult = 'The blog called ' + title + ' by ' + author + ' has ' + likes + ' likes.';
+let concatResult =
+  "The blog called " + title + " by " + author + " has " + likes + " likes.";
 let templateResult = `The blog called ${title} by ${author} has ${likes} likes.`;
 
 // console.log(concatResult);
@@ -84,11 +85,11 @@ let htmlContent = `
     <p class="small">This blog has ${likes} likes.</p>
 `;
 
-const col = document.querySelector('.section .column');
+const col = document.querySelector(".section .column");
 col.innerHTML = htmlContent;
 
 /* Boolean */
-const booleanResult = email.includes('@');
+const booleanResult = email.includes("@");
 console.log(booleanResult);
 
 console.log(age === 30);
@@ -111,20 +112,20 @@ let i = 5;
 // }
 
 do {
-	// can run the while loop just once even if not true.
-	console.log('val of i is: ', i);
-	i++;
+  // can run the while loop just once even if not true.
+  console.log("val of i is: ", i);
+  i++;
 } while (i < 5);
 
 /* if statements */
-const password = 'p@assword';
+const password = "p@assword";
 
-if (password.length >= 12 && password.includes('@')) {
-	console.log('This is a great password.');
+if (password.length >= 12 && password.includes("@")) {
+  console.log("This is a great password.");
 } else if (password.length >= 8) {
-	console.log('Password is the right length.');
+  console.log("Password is the right length.");
 } else {
-	console.error('Password is too short!');
+  console.error("Password is too short!");
 }
 
 /* Logical operators 
@@ -136,118 +137,122 @@ if (password.length >= 12 && password.includes('@')) {
 
 /* Break & continue */
 
-const scores = [ 50, 25, 0, 100, 20, 40 ];
+const scores = [50, 25, 0, 100, 20, 40];
 
 for (let i = 0; i < scores.length; i++) {
-	if (scores[i] === 0) {
-		continue;
-	}
+  if (scores[i] === 0) {
+    continue;
+  }
 
-	console.log('Your score is: ', scores[i]);
+  console.log("Your score is: ", scores[i]);
 
-	if (scores[i] === 100) {
-		console.log('You got to a 100!');
-		break;
-	}
+  if (scores[i] === 100) {
+    console.log("You got to a 100!");
+    break;
+  }
 }
 
 /* Switch statements */
 
-const grade = 'D';
+const grade = "D";
 // Checks with === and same type as created var.
 switch (grade) {
-	case 'A':
-		console.log('Great stuff you got an A!');
-		break;
-	case 'B':
-		console.log('Well done you got an B.');
-		break;
-	case 'C':
-		console.log('Well done you got an C');
-		break;
-	case 'D':
-		console.log('Ah you got a D. Better luck next time.');
-		break;
-	case 'E':
-		console.log('Oh dear got a E. Better luck next time.');
-		break;
-	case 'F':
-		console.log('What happened? You failed!');
-		break;
-	default:
-		console.error('Not a vaild grade.');
+  case "A":
+    console.log("Great stuff you got an A!");
+    break;
+  case "B":
+    console.log("Well done you got an B.");
+    break;
+  case "C":
+    console.log("Well done you got an C");
+    break;
+  case "D":
+    console.log("Ah you got a D. Better luck next time.");
+    break;
+  case "E":
+    console.log("Oh dear got a E. Better luck next time.");
+    break;
+  case "F":
+    console.log("What happened? You failed!");
+    break;
+  default:
+    console.error("Not a vaild grade.");
 }
 
 /* Funtions */
 
 // Function declaration
 function greet() {
-	console.log('Hello');
+  console.log("Hello");
 }
 greet(); // Can call above function.
 
 // Function Expression
 const speak = function() {
-	console.log('Good day');
+  console.log("Good day");
 };
 speak(); // Cannot call before function
 
 // Arguments & Parameters
-const speak2 = (name = 'Bob', day = 'morning') => {
-	console.log(`good ${day} ${name}`);
+const speak2 = (name = "Bob", day = "morning") => {
+  console.log(`good ${day} ${name}`);
 };
-speak2('Naruto', 'night');
+speak2("Naruto", "night");
 
 // Returning Values
-const calc = (radius) => 3.8989 * radius ** 2;
+const calc = radius => 3.8989 * radius ** 2;
 const area = calc(5);
-console.log('area is: ' + area);
+console.log("area is: " + area);
 
 // Foreach Methods & Callbacks
-const people = [ 'mark', 'henry', 'george', 'lenny', 'hugo', 'jekyll', 'hyde' ];
+const people = ["mark", "henry", "george", "lenny", "hugo", "jekyll", "hyde"];
 
-const ul = document.querySelector('.testlist');
+const ul = document.querySelector(".testlist");
 let html = ``;
 
-people.forEach((person) => {
-	html += `<li class="testlist__item">${person.toLowerCase()}</li>`;
+people.forEach(person => {
+  html += `<li class="testlist__item">${person.toLowerCase()}</li>`;
 });
 ul.innerHTML = html;
 
 /* Objects */
 
 let user = {
-	name: 'Mat',
-	age: 30,
-	email: 'mathew.teageu@outlook.com',
-	location: 'Birmingham',
-	blogs: [
-		{
-			title: 'Hello',
-			likes: 20
-		},
-		{
-			title: 'World',
-			likes: 40
-		}
-	],
-	login: () => console.log('user logged in!'),
-	logout: () => console.log('user logged out!'),
-	logBlogs() {
-		// Method instead of object.
-		// if set the => the 'this' will be set to the global function not within the user object.
-		this.blogs.forEach((blog) => console.log(`Blog title is: ${blog.title}. Number of likes are: ${blog.likes}`)); // this referes to the user object - user. e.g. this user.
-	}
+  name: "Mat",
+  age: 30,
+  email: "mathew.teageu@outlook.com",
+  location: "Birmingham",
+  blogs: [
+    {
+      title: "Hello",
+      likes: 20
+    },
+    {
+      title: "World",
+      likes: 40
+    }
+  ],
+  login: () => console.log("user logged in!"),
+  logout: () => console.log("user logged out!"),
+  logBlogs() {
+    // Method instead of object.
+    // if set the => the 'this' will be set to the global function not within the user object.
+    this.blogs.forEach(blog =>
+      console.log(
+        `Blog title is: ${blog.title}. Number of likes are: ${blog.likes}`
+      )
+    ); // this referes to the user object - user. e.g. this user.
+  }
 };
 
 console.log(user);
 console.log(user.name);
-console.log(user['email']);
+console.log(user["email"]);
 
-user['name'] = 'Bob';
-console.log(user['name']);
+user["name"] = "Bob";
+console.log(user["name"]);
 
-const key = 'location';
+const key = "location";
 console.log(user[key]);
 
 console.log(typeof user);
@@ -266,68 +271,70 @@ const random = Math.random();
 console.log(Math.round(random * 100));
 
 /* Define default vars */
-const body = document.getElementsByTagName('body')[0];
+const body = document.getElementsByTagName("body")[0];
 const url = document.URL;
 console.info(body);
 console.info(url);
 
 /* Dom Manipulation */
-const para = document.querySelector('.content__bottom p'); // Selects only one p tag item.
-const paras = document.querySelectorAll('.content__bottom p'); // Selects all p tag items. Isn't an array but can do things like an array.
+const para = document.querySelector(".content__bottom p"); // Selects only one p tag item.
+const paras = document.querySelectorAll(".content__bottom p"); // Selects all p tag items. Isn't an array but can do things like an array.
 
 console.log(para);
 console.log(paras[1]);
 
-paras.forEach((para) => console.log(para));
+paras.forEach(para => console.log(para));
 
-const contents = document.getElementsByClassName('content'); // Creates a HTML collection. // This is not the same as a node list such as querySelectorAll. Can't do forEach loops with collections.
+const contents = document.getElementsByClassName("content"); // Creates a HTML collection. // This is not the same as a node list such as querySelectorAll. Can't do forEach loops with collections.
 
-const link = document.querySelector('.content__bottom a');
-console.log(`Current link href: ${link.getAttribute('href')}`);
-link.setAttribute('href', 'https://yewtreeweb.co.uk');
-link.innerText = 'YewTreeWeb';
-console.log(`New link href: ${link.getAttribute('href')}`);
-link.setAttribute('style', 'color: orange;');
+const link = document.querySelector(".content__bottom a");
+console.log(`Current link href: ${link.getAttribute("href")}`);
+link.setAttribute("href", "https://yewtreeweb.co.uk");
+link.innerText = "YewTreeWeb";
+console.log(`New link href: ${link.getAttribute("href")}`);
+link.setAttribute("style", "color: orange;");
 
 // Get style property
 console.log(para.style.color); // Get's the color of the element.
-para.style.fontSize = '20px'; // Add style instead of setAttribute('style', 'color: orange;');
-para.style.color = ''; // Removes style.
+para.style.fontSize = "20px"; // Add style instead of setAttribute('style', 'color: orange;');
+para.style.color = ""; // Removes style.
 
-const siteTitle = document.querySelector('h1');
+const siteTitle = document.querySelector("h1");
 console.log(siteTitle.classList);
-siteTitle.classList.add('title--lg');
+siteTitle.classList.add("title--lg");
 // siteTitle.classList.remove('title--lg');
 
 /* Grabs all p tags and checks if they have the words success or error and then apply the correct class to them. */
-const paraTags = document.querySelectorAll('.content__middle p');
-paraTags.forEach((paraTag) => {
-	try {
-		// If use innerText all visible text within element is got. So no text within a sub element.
-		// To get all text use textContent.
-		const errorTag = paraTag.textContent.includes('error');
-		const successTag = paraTag.textContent.includes('success');
-		if (errorTag) {
-			paraTag.classList.add('error');
-		}
-		if (successTag) {
-			paraTag.classList.add('success');
-		}
-	} catch (e) {
-		console.error(e);
-		console.info(paraTag);
-	}
+const paraTags = document.querySelectorAll(".content__middle p");
+paraTags.forEach(paraTag => {
+  try {
+    // If use innerText all visible text within element is got. So no text within a sub element.
+    // To get all text use textContent.
+    const errorTag = paraTag.textContent.includes("error");
+    const successTag = paraTag.textContent.includes("success");
+    if (errorTag) {
+      paraTag.classList.add("error");
+    }
+    if (successTag) {
+      paraTag.classList.add("success");
+    }
+  } catch (e) {
+    console.error(e);
+    console.info(paraTag);
+  }
 });
 
 // Manipluate children.
-const article = document.querySelector('article');
+const article = document.querySelector("article");
 console.log(article.children);
 
 // Array.from turns collection into an array.
-Array.from(article.children).forEach((child) => child.classList.add('article-element'));
+Array.from(article.children).forEach(child =>
+  child.classList.add("article-element")
+);
 
 // Get parent
-const articleTitle = document.querySelector('article h2');
+const articleTitle = document.querySelector("article h2");
 console.log(articleTitle.parentElement);
 
 // Get siblings
@@ -336,28 +343,28 @@ console.log(articleTitle.previousElementSibling);
 
 /* Basic Events */
 
-const list = document.querySelector('.todoList');
-const listItems = document.querySelectorAll('.todoList li');
+const list = document.querySelector(".todoList");
+const listItems = document.querySelectorAll(".todoList li");
 
-const button = document.querySelector('button.is-info');
-const buttonRemove = document.querySelector('button.is-danger');
+const button = document.querySelector("button.is-info");
+const buttonRemove = document.querySelector("button.is-danger");
 
-button.addEventListener('click', () => {
-	const li = document.createElement('li');
-	console.log('You clicked me.');
-	button.classList.toggle('is-light');
-	li.textContent = 'something new';
-	list.append(li);
+button.addEventListener("click", () => {
+  const li = document.createElement("li");
+  console.log("You clicked me.");
+  button.classList.toggle("is-light");
+  li.textContent = "something new";
+  list.append(li);
 });
 
-buttonRemove.addEventListener('click', () => {
-	console.log('You removed an item.');
-	console.log(list.children);
-	Array.from(list.children).forEach((child) => {
-		if (child.style.textDecoration.includes('line-through')) {
-			child.remove();
-		}
-	});
+buttonRemove.addEventListener("click", () => {
+  console.log("You removed an item.");
+  console.log(list.children);
+  Array.from(list.children).forEach(child => {
+    if (child.style.textDecoration.includes("line-through")) {
+      child.remove();
+    }
+  });
 });
 
 // listItems.forEach((item) => {
@@ -372,56 +379,56 @@ buttonRemove.addEventListener('click', () => {
 // 	});
 // });
 
-list.addEventListener('click', (e) => {
-	// Event delegation. Stops events being assigned to each element and will work with newly generated ones.
-	console.log(e.target);
-	e.stopPropagation(); // Stops the even bubbling up to the parent.
-	if (e.target.tagName === 'LI') {
-		if (e.target.style.textDecoration.includes('line-through')) {
-			e.target.style.textDecoration = '';
-		} else {
-			e.target.style.textDecoration = 'line-through';
-		}
-	}
+list.addEventListener("click", e => {
+  // Event delegation. Stops events being assigned to each element and will work with newly generated ones.
+  console.log(e.target);
+  e.stopPropagation(); // Stops the even bubbling up to the parent.
+  if (e.target.tagName === "LI") {
+    if (e.target.style.textDecoration.includes("line-through")) {
+      e.target.style.textDecoration = "";
+    } else {
+      e.target.style.textDecoration = "line-through";
+    }
+  }
 });
 
 // Copy event
-const copy = document.querySelector('.content__bottom h3');
+const copy = document.querySelector(".content__bottom h3");
 
-copy.addEventListener('copy', () => {
-	console.log('copied!');
+copy.addEventListener("copy", () => {
+  console.log("copied!");
 });
 
 // Mouse move
-const move = document.querySelector('.hero-body');
-const pos = document.createElement('p');
-pos.textContent = '';
+const move = document.querySelector(".hero-body");
+const pos = document.createElement("p");
+pos.textContent = "";
 move.append(pos);
-move.addEventListener('mousemove', (e) => {
-	// console.log(e.offsetX, e.offsetY);
-	pos.textContent = `X Pos - ${e.offsetX} Y Pos - ${e.offsetY}`;
+move.addEventListener("mousemove", e => {
+  // console.log(e.offsetX, e.offsetY);
+  pos.textContent = `X Pos - ${e.offsetX} Y Pos - ${e.offsetY}`;
 });
 
 // Wheel
-const wheel = document.createElement('p');
-wheel.textContent = '';
+const wheel = document.createElement("p");
+wheel.textContent = "";
 move.append(wheel);
-document.addEventListener('wheel', (e) => {
-	wheel.textContent = `Page X - ${e.pageX} Page Y - ${e.pageY}`;
+document.addEventListener("wheel", e => {
+  wheel.textContent = `Page X - ${e.pageX} Page Y - ${e.pageY}`;
 });
 
 /* Popup */
-const pop = document.querySelector('.pop');
-const popup = document.querySelector('.popup-wrapper');
-const close = document.querySelector('.popup-close');
+const pop = document.querySelector(".pop");
+const popup = document.querySelector(".popup-wrapper");
+const close = document.querySelector(".popup-close");
 
-pop.addEventListener('click', () => (popup.style.display = 'block'));
-close.addEventListener('click', () => (popup.style.display = 'none'));
-popup.addEventListener('click', () => (popup.style.display = 'none'));
+pop.addEventListener("click", () => (popup.style.display = "block"));
+close.addEventListener("click", () => (popup.style.display = "none"));
+popup.addEventListener("click", () => (popup.style.display = "none"));
 
 /* Forms */
-const form = document.querySelector('.signup-form');
-const feedback = document.querySelector('.signup-form .feedback');
+const form = document.querySelector(".signup-form");
+const feedback = document.querySelector(".signup-form .feedback");
 // const username = document.querySelector('#username');
 const userPattern = /^[a-zA-Z]{6,12}$/; // Checks if username doesn't have any other characters before or after and is a lengeth between 6 and 12 characters.
 
@@ -430,82 +437,86 @@ const userPattern = /^[a-zA-Z]{6,12}$/; // Checks if username doesn't have any o
 // let patternResult = userName.search(pattern);
 // console.info(patternResult);
 
-form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	// console.log(username.value);
-	console.log(form.username.value); // dot notation with forms
-	const formUser = form.username.value;
-	const patternResult = userPattern.test(formUser);
-	if (patternResult) {
-		// Feedback success
-		feedback.textContent = 'Vaild username';
-		feedback.classList.remove('error');
-		feedback.classList.add('success');
-	} else {
-		// Feedback fail
-		feedback.textContent = 'Invalid username';
-		feedback.classList.remove('success');
-		feedback.classList.add('error');
-	}
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  // console.log(username.value);
+  console.log(form.username.value); // dot notation with forms
+  const formUser = form.username.value;
+  const patternResult = userPattern.test(formUser);
+  if (patternResult) {
+    // Feedback success
+    feedback.textContent = "Vaild username";
+    feedback.classList.remove("error");
+    feedback.classList.add("success");
+  } else {
+    // Feedback fail
+    feedback.textContent = "Invalid username";
+    feedback.classList.remove("success");
+    feedback.classList.add("error");
+  }
 });
 
 // Live Feedback form
-form.username.addEventListener('keyup', (e) => {
-	console.log(e.target.value);
-	const userValue = userPattern.test(e.target.value);
-	if (userValue) {
-		form.username.setAttribute('class', 'success');
-	} else {
-		form.username.setAttribute('class', 'error');
-	}
+form.username.addEventListener("keyup", e => {
+  console.log(e.target.value);
+  const userValue = userPattern.test(e.target.value);
+  if (userValue) {
+    form.username.setAttribute("class", "success");
+  } else {
+    form.username.setAttribute("class", "error");
+  }
 });
 
 /* Filters */
-const filterScores = [ 10, 30, 15, 25, 50, 40, 5 ];
+const filterScores = [10, 30, 15, 25, 50, 40, 5];
 
-const filteredScores = filterScores.filter((score) => score > 20);
+const filteredScores = filterScores.filter(score => score > 20);
 
-console.log('Filter Array: ' + filterScores);
-console.log('Filtered Array: ' + filteredScores);
+console.log("Filter Array: " + filterScores);
+console.log("Filtered Array: " + filteredScores);
 
 // Get products
 const products = [
-	{
-		name: 'Yoshi',
-		sale: true,
-		price: 20
-	},
-	{
-		name: 'Mario',
-		sale: false,
-		price: 40
-	},
-	{
-		name: 'Luigi',
-		sale: false,
-		price: 56
-	},
-	{
-		name: 'Lee',
-		sale: true,
-		price: 35
-	}
+  {
+    name: "Yoshi",
+    sale: true,
+    price: 20
+  },
+  {
+    name: "Mario",
+    sale: false,
+    price: 40
+  },
+  {
+    name: "Luigi",
+    sale: false,
+    price: 56
+  },
+  {
+    name: "Lee",
+    sale: true,
+    price: 35
+  }
 ];
 
-const productSales = products.filter((product) => product.sale);
+const productSales = products.filter(product => product.sale);
 console.log(productSales);
 
 // Map cycles through an array and creates a new array
-const prices = [ 20, 10, 5, 15, 25, 30, 66, 89 ];
-const salePrices = prices.map((price) => price / 2);
+const prices = [20, 10, 5, 15, 25, 30, 66, 89];
+const salePrices = prices.map(price => price / 2);
 console.log(salePrices);
 
-const saleProducts = products.map((product) => {
-	if (product.price > 30) {
-		return { name: product.name, price: product.price / 2, forSale: product.sale };
-	} else {
-		return product;
-	}
+const saleProducts = products.map(product => {
+  if (product.price > 30) {
+    return {
+      name: product.name,
+      price: product.price / 2,
+      forSale: product.sale
+    };
+  } else {
+    return product;
+  }
 });
 console.log(saleProducts);
 
@@ -513,41 +524,41 @@ console.log(saleProducts);
 // acc = accumilator
 // curr = current
 const highPrices = prices.reduce((acc, curr) => {
-	if (curr > 20) {
-		acc++;
-	}
-	return acc;
+  if (curr > 20) {
+    acc++;
+  }
+  return acc;
 }, 0);
 console.log(highPrices);
 
 const playerScores = [
-	{ player: 'mario', score: 50 },
-	{ player: 'yoshi', score: 30 },
-	{ player: 'mario', score: 44 },
-	{ player: 'yoshi', score: 58 },
-	{ player: 'mario', score: 70 },
-	{ player: 'crystal', score: 60 },
-	{ player: 'mario', score: 98 },
-	{ player: 'crystal', score: 76 },
-	{ player: 'mario', score: 23 }
+  { player: "mario", score: 50 },
+  { player: "yoshi", score: 30 },
+  { player: "mario", score: 44 },
+  { player: "yoshi", score: 58 },
+  { player: "mario", score: 70 },
+  { player: "crystal", score: 60 },
+  { player: "mario", score: 98 },
+  { player: "crystal", score: 76 },
+  { player: "mario", score: 23 }
 ];
 
 const totalScores = playerScores.reduce((acc, curr) => {
-	if (curr.player === 'mario') {
-		acc += curr.score;
-	}
-	return acc;
+  if (curr.player === "mario") {
+    acc += curr.score;
+  }
+  return acc;
 }, 0);
 console.log(`Mario's total score: ${totalScores}`);
 
 // itterates an item and will return the first value then stops
-const firstHighScore = playerScores.find((score) => {
-	return score.score > 60;
+const firstHighScore = playerScores.find(score => {
+  return score.score > 60;
 });
 console.log(firstHighScore);
 
 // Sort by property
-const names = [ 'mario', 'shaun', 'chun-li', 'yoshi', 'luigi' ];
+const names = ["mario", "shaun", "chun-li", "yoshi", "luigi"];
 
 names.sort();
 console.log(names);
@@ -558,13 +569,13 @@ names.reverse();
 console.log(names);
 
 playerScores.sort((a, b) => {
-	if (a.score > b.score) {
-		return -1;
-	} else if (b.score > a.score) {
-		return 1;
-	} else {
-		return 0;
-	}
+  if (a.score > b.score) {
+    return -1;
+  } else if (b.score > a.score) {
+    return 1;
+  } else {
+    return 0;
+  }
 });
 
 // Does the same as above sort
@@ -581,60 +592,73 @@ console.log(prices);
 // });
 
 const promos = products
-	.filter((product) => product.price > 20)
-	.map((product) => `the ${product.name} is ${product.price / 2} pounds`);
+  .filter(product => product.price > 20)
+  .map(product => `the ${product.name} is ${product.price / 2} pounds`);
 
 console.log(promos);
 
 /* Dates */
-const before = new Date('February 28 2020 8:53:00');
+const before = new Date("February 28 2020 8:53:00");
 const now = new Date();
 console.log(now);
 console.log(typeof now);
 
 // years, months, day, times
-console.log('Get full year: ', now.getFullYear());
-console.log('Get month: ', now.getMonth());
-console.log('Get day: ', now.getDay());
-console.log('Get hours: ', now.getHours());
-console.log('Get minutes: ', now.getMinutes());
-console.log('Get seconds: ', now.getSeconds());
+console.log("Get full year: ", now.getFullYear());
+console.log("Get month: ", now.getMonth());
+console.log("Get day: ", now.getDay());
+console.log("Get hours: ", now.getHours());
+console.log("Get minutes: ", now.getMinutes());
+console.log("Get seconds: ", now.getSeconds());
 
 // timestamp
-console.log('Get timestamp: ', now.getTime()); // Number of milliseconds since 12am - 1st Jan 1970
+console.log("Get timestamp: ", now.getTime()); // Number of milliseconds since 12am - 1st Jan 1970
 const diff = now.getTime() - before.getTime();
 const mins = Math.round(diff / 1000 / 60);
 const hours = Math.round(mins / 60);
 const days = Math.round(hours / 24);
-console.log('Difference between now and before: ', diff);
-console.log('Difference between now and before in mins: ', mins);
-console.log('Difference between now and before in hours: ', hours);
-console.log('Difference between now and before in days: ', days);
+console.log("Difference between now and before: ", diff);
+console.log("Difference between now and before in mins: ", mins);
+console.log("Difference between now and before in hours: ", hours);
+console.log("Difference between now and before in days: ", days);
 
 // date stringss
-console.log('Get date: ', now.toDateString());
-console.log('Get time: ', now.toTimeString());
-console.log('Get local: ', now.toLocaleString());
+console.log("Get date: ", now.toDateString());
+console.log("Get time: ", now.toTimeString());
+console.log("Get local: ", now.toLocaleString());
 
 // Digital Clock
-const clock = document.querySelector('.clock');
+const clock = document.querySelector(".clock");
 const tick = () => {
-	const currentTime = new Date();
-	const h = currentTime.getHours();
-	const m = currentTime.getMinutes();
-	const s = currentTime.getSeconds();
+  const currentTime = new Date();
+  const h = currentTime.getHours();
+  const m = currentTime.getMinutes();
+  const s = currentTime.getSeconds();
 
-	const clockHtml = `
+  const clockHtml = `
 		<span>${h}</span> :
 		<span>${m}</span> :
 		<span>${s}</span>
 	`;
 
-	clock.innerHTML = clockHtml;
+  clock.innerHTML = clockHtml;
 };
 
 setInterval(tick, 1000);
 
 // Date formatting
 console.log(isToday(now));
-console.log(format(now, 'dd, Do, MMMM, yyyy'));
+console.log(format(now, "dd, Do, MMMM, yyyy"));
+
+/* Async JS */
+const request = new XMLHttpRequest();
+
+request.addEventListener("readystatechange", () => {
+  // console.log(request, request.readyState);
+  if (request.readyState === 4) {
+    console.log(request.responseText);
+  }
+});
+
+request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
+request.send();
