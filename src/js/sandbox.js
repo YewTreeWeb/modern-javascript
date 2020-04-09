@@ -1010,3 +1010,95 @@ unsubBtn.addEventListener("click", () => {
   unsub();
   console.log("unsubscribed from changes");
 });
+
+/**
+ * Spread & Rest
+ */
+
+// rest parameter
+// put three dots in front of parmeters you want to become an array
+const double = (...nums) => {
+  console.log(nums);
+  return nums.map(num => num * 2);
+};
+
+const restResult = double(1, 3, 5, 7, 9, 2, 4, 6, 8);
+console.log(restResult);
+
+// spread syntax (arrays)
+// spreads out the values of the array.
+const family = ["alice", "lily", "mat"];
+console.log(...family);
+
+// good for taking values of an array and spread them out into another.
+const newFamily = ["pam", "jeff", "julie", "andrew", ...family];
+console.log(newFamily);
+
+// spread syntax (objects)
+const familyPerson = { name: "alice", age: 29, job: "student welfare" };
+const familyClone = { ...familyPerson, location: "Birminigham" };
+
+console.log(familyClone);
+
+/**
+ * Sets
+ */
+
+// elimate duplicates
+// can't use the same commands like a nornal array
+const setsArray = ["alice", "lily", "mat", "alice"];
+console.log(setsArray);
+
+const newSetArray = new Set(setsArray);
+console.log(newSetArray);
+
+// spread set into a new array
+// const uniqueSetArray = [...new Set(setsArray)];
+const uniqueSetArray = [...newSetArray]; // works the same as above
+console.log(uniqueSetArray);
+
+const ages = new Set();
+ages.add(30);
+ages.add(30).add(29);
+ages.add(2);
+ages.delete(2);
+
+console.log(ages, ages.size);
+console.log(ages.has(30));
+
+ages.clear(); // remove everything in the set
+console.log(ages);
+
+const ninjas = new Set([
+  { name: "alice", age: 29 },
+  { name: "lily", age: 29 },
+  { name: "mat", age: 29 }
+]);
+
+ninjas.forEach(ninja => {
+  console.info(ninja.name, ninja.age);
+});
+
+/**
+ * Symbols
+ */
+
+// No symbols will be the same and will never be equal to each other
+// Are legacy
+// can be used as keys
+// using symbols in an object will be unqiue
+
+const symbolOne = Symbol("A name");
+const symbolTwo = Symbol("A name");
+
+console.log(symbolOne, typeof symbolOne);
+console.log(symbolTwo, typeof symbolTwo);
+
+const fam = {};
+fam.age = 30;
+fam["name"] = "Teague";
+
+fam[symbolOne] = "Teague";
+fam[symbolTwo] = "Adam";
+
+console.log(fam);
