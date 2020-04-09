@@ -926,21 +926,87 @@ usersOne.login();
 /* Firebase */
 console.log("rescipes firestore");
 const recipes = document.querySelector(".recipes");
+const recipesForm = document.querySelector("#recipesForm");
 
-const addRecipe = recipe => {
+const addRecipe = (recipe, id) => {
   const created = recipe.created_at.toDate();
   let html = `
-    <li><p>${recipe.title} - <span>created at: ${created}</span</p></li>
+    <li data-id="${id}">
+      <p>${recipe.title} - <span>created at: ${created}</span></p>
+      <button class="button is-danger">Delete</button>
+    </li>
   `;
   console.log(html);
   recipes.innerHTML += html;
 };
 
-db.collection("recipes")
-  .get()
-  .then(snapshot => {
-    snapshot.docs.forEach(doc => {
-      addRecipe(doc.data());
+const deleteRecipe = id => {
+  const recipeTags = document.querySelectorAll(".recipes li");
+  recipeTags.forEach(recipe => {
+    if (recipe.getAttribute("data-id") === id) {
+      recipe.remove();
+    }
+  });
+};
+
+// get documents
+const unsub = db.collection("recipes").onSnapshot(snapshot => {
+  console.log(snapshot.docChanges());
+  snapshot.docChanges().forEach(change => {
+    const doc = change.doc;
+    if (change.type === "added") {
+      addRecipe(doc.data(), doc.id);
+    } else if (change.type === "removed") {
+      deleteRecipe(doc.id);
+    }
+  });
+});
+
+// add documents
+recipesForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const now = new Date();
+  const recipe = {
+    title: recipesForm.recipe.value,
+    created_at: firebase.firestore.Timestamp.fromDate(now)
+  };
+
+  db.collection("recipes")
+    .add(recipe)
+    .then(() => {
+      console.log("recipe added!");
+    })
+    .catch(err => {
+      console.error(err);
     });
-  })
-  .catch(err => console.error(err));
+
+  recipesForm.reset();
+});
+
+// delete documents
+recipes.addEventListener("click", e => {
+  if (e.target.tagName === "BUTTON") {
+    console.log("button clicked");
+    const id = e.target.parentElement.getAttribute("data-id");
+    console.log(id);
+
+    db.collection("recipes")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("recipe deleted!");
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+});
+
+// unsub from database changes
+const unsubBtn = document.querySelector("#recipesUnsub");
+
+unsubBtn.addEventListener("click", () => {
+  unsub();
+  console.log("unsubscribed from changes");
+});

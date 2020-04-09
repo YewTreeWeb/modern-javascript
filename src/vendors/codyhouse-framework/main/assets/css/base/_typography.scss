@@ -15,7 +15,7 @@ h1, h2, h3, h4 {
   line-height: var(--heading-line-height, 1.2);
 }
 
-// font size
+// text size
 .text-xxxl {
   font-size: var(--text-xxxl, 2.488em);
 }
@@ -62,7 +62,7 @@ s {
   text-decoration: line-through;
 }
 
-u {
+u, .text-underline {
   text-decoration: underline;
 }
 
