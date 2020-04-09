@@ -188,7 +188,7 @@ function greet() {
 greet(); // Can call above function.
 
 // Function Expression
-const speak = function() {
+const speak = function () {
   console.log("Good day");
 };
 speak(); // Cannot call before function
@@ -200,7 +200,7 @@ const speak2 = (name = "Bob", day = "morning") => {
 speak2("Naruto", "night");
 
 // Returning Values
-const calc = radius => 3.8989 * radius ** 2;
+const calc = (radius) => 3.8989 * radius ** 2;
 const area = calc(5);
 console.log("area is: " + area);
 
@@ -210,7 +210,7 @@ const people = ["mark", "henry", "george", "lenny", "hugo", "jekyll", "hyde"];
 const ul = document.querySelector(".testlist");
 let html = ``;
 
-people.forEach(person => {
+people.forEach((person) => {
   html += `<li class="testlist__item">${person.toLowerCase()}</li>`;
 });
 ul.innerHTML = html;
@@ -225,24 +225,24 @@ let user = {
   blogs: [
     {
       title: "Hello",
-      likes: 20
+      likes: 20,
     },
     {
       title: "World",
-      likes: 40
-    }
+      likes: 40,
+    },
   ],
   login: () => console.log("user logged in!"),
   logout: () => console.log("user logged out!"),
   logBlogs() {
     // Method instead of object.
     // if set the => the 'this' will be set to the global function not within the user object.
-    this.blogs.forEach(blog =>
+    this.blogs.forEach((blog) =>
       console.log(
         `Blog title is: ${blog.title}. Number of likes are: ${blog.likes}`
       )
     ); // this referes to the user object - user. e.g. this user.
-  }
+  },
 };
 
 console.log(user);
@@ -283,7 +283,7 @@ const paras = document.querySelectorAll(".content__bottom p"); // Selects all p 
 console.log(para);
 console.log(paras[1]);
 
-paras.forEach(para => console.log(para));
+paras.forEach((para) => console.log(para));
 
 const contents = document.getElementsByClassName("content"); // Creates a HTML collection. // This is not the same as a node list such as querySelectorAll. Can't do forEach loops with collections.
 
@@ -306,7 +306,7 @@ siteTitle.classList.add("title--lg");
 
 /* Grabs all p tags and checks if they have the words success or error and then apply the correct class to them. */
 const paraTags = document.querySelectorAll(".content__middle p");
-paraTags.forEach(paraTag => {
+paraTags.forEach((paraTag) => {
   try {
     // If use innerText all visible text within element is got. So no text within a sub element.
     // To get all text use textContent.
@@ -329,7 +329,7 @@ const article = document.querySelector("article");
 console.log(article.children);
 
 // Array.from turns collection into an array.
-Array.from(article.children).forEach(child =>
+Array.from(article.children).forEach((child) =>
   child.classList.add("article-element")
 );
 
@@ -360,7 +360,7 @@ button.addEventListener("click", () => {
 buttonRemove.addEventListener("click", () => {
   console.log("You removed an item.");
   console.log(list.children);
-  Array.from(list.children).forEach(child => {
+  Array.from(list.children).forEach((child) => {
     if (child.style.textDecoration.includes("line-through")) {
       child.remove();
     }
@@ -379,7 +379,7 @@ buttonRemove.addEventListener("click", () => {
 // 	});
 // });
 
-list.addEventListener("click", e => {
+list.addEventListener("click", (e) => {
   // Event delegation. Stops events being assigned to each element and will work with newly generated ones.
   console.log(e.target);
   e.stopPropagation(); // Stops the even bubbling up to the parent.
@@ -404,7 +404,7 @@ const move = document.querySelector(".hero-body");
 const pos = document.createElement("p");
 pos.textContent = "";
 move.append(pos);
-move.addEventListener("mousemove", e => {
+move.addEventListener("mousemove", (e) => {
   // console.log(e.offsetX, e.offsetY);
   pos.textContent = `X Pos - ${e.offsetX} Y Pos - ${e.offsetY}`;
 });
@@ -413,7 +413,7 @@ move.addEventListener("mousemove", e => {
 const wheel = document.createElement("p");
 wheel.textContent = "";
 move.append(wheel);
-document.addEventListener("wheel", e => {
+document.addEventListener("wheel", (e) => {
   wheel.textContent = `Page X - ${e.pageX} Page Y - ${e.pageY}`;
 });
 
@@ -437,7 +437,7 @@ const userPattern = /^[a-zA-Z]{6,12}$/; // Checks if username doesn't have any o
 // let patternResult = userName.search(pattern);
 // console.info(patternResult);
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   // console.log(username.value);
   console.log(form.username.value); // dot notation with forms
@@ -457,7 +457,7 @@ form.addEventListener("submit", e => {
 });
 
 // Live Feedback form
-form.username.addEventListener("keyup", e => {
+form.username.addEventListener("keyup", (e) => {
   console.log(e.target.value);
   const userValue = userPattern.test(e.target.value);
   if (userValue) {
@@ -470,7 +470,7 @@ form.username.addEventListener("keyup", e => {
 /* Filters */
 const filterScores = [10, 30, 15, 25, 50, 40, 5];
 
-const filteredScores = filterScores.filter(score => score > 20);
+const filteredScores = filterScores.filter((score) => score > 20);
 
 console.log("Filter Array: " + filterScores);
 console.log("Filtered Array: " + filteredScores);
@@ -480,39 +480,39 @@ const products = [
   {
     name: "Yoshi",
     sale: true,
-    price: 20
+    price: 20,
   },
   {
     name: "Mario",
     sale: false,
-    price: 40
+    price: 40,
   },
   {
     name: "Luigi",
     sale: false,
-    price: 56
+    price: 56,
   },
   {
     name: "Lee",
     sale: true,
-    price: 35
-  }
+    price: 35,
+  },
 ];
 
-const productSales = products.filter(product => product.sale);
+const productSales = products.filter((product) => product.sale);
 console.log(productSales);
 
 // Map cycles through an array and creates a new array
 const prices = [20, 10, 5, 15, 25, 30, 66, 89];
-const salePrices = prices.map(price => price / 2);
+const salePrices = prices.map((price) => price / 2);
 console.log(salePrices);
 
-const saleProducts = products.map(product => {
+const saleProducts = products.map((product) => {
   if (product.price > 30) {
     return {
       name: product.name,
       price: product.price / 2,
-      forSale: product.sale
+      forSale: product.sale,
     };
   } else {
     return product;
@@ -540,7 +540,7 @@ const playerScores = [
   { player: "crystal", score: 60 },
   { player: "mario", score: 98 },
   { player: "crystal", score: 76 },
-  { player: "mario", score: 23 }
+  { player: "mario", score: 23 },
 ];
 
 const totalScores = playerScores.reduce((acc, curr) => {
@@ -552,7 +552,7 @@ const totalScores = playerScores.reduce((acc, curr) => {
 console.log(`Mario's total score: ${totalScores}`);
 
 // itterates an item and will return the first value then stops
-const firstHighScore = playerScores.find(score => {
+const firstHighScore = playerScores.find((score) => {
   return score.score > 60;
 });
 console.log(firstHighScore);
@@ -592,8 +592,8 @@ console.log(prices);
 // });
 
 const promos = products
-  .filter(product => product.price > 20)
-  .map(product => `the ${product.name} is ${product.price / 2} pounds`);
+  .filter((product) => product.price > 20)
+  .map((product) => `the ${product.name} is ${product.price / 2} pounds`);
 
 console.log(promos);
 
@@ -670,7 +670,7 @@ const remoteTodos = (resource, cb) => {
   request.send();
 };
 */
-const remoteTodos = resource => {
+const remoteTodos = (resource) => {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
 
@@ -689,10 +689,10 @@ const remoteTodos = resource => {
 };
 
 remoteTodos("https://jsonplaceholder.typicode.com/todos/")
-  .then(data => {
+  .then((data) => {
     console.log("promise resolved: ", data);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error("promise rejected: ", err);
   });
 
@@ -735,23 +735,23 @@ const getSomething = () => {
 // );
 
 getSomething()
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
   });
 
 /* Fetch API */
 fetch("https://jsonplaceholder.typicode.com/todos/")
-  .then(response => {
+  .then((response) => {
     console.log("resolved", response);
     return response.json();
   })
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error("rejected", err);
   });
 
@@ -772,8 +772,8 @@ const asyncTodos = async () => {
 };
 
 asyncTodos()
-  .then(data => console.log("async resolved:", data))
-  .catch(err => console.error(err));
+  .then((data) => console.log("async resolved:", data))
+  .catch((err) => console.error(err));
 
 /* Local Storage */
 
@@ -787,7 +787,7 @@ localStorage.removeItem("name"); // deletes one item
 const jobList = [
   { text: "play mariokart", author: "Mat" },
   { text: "buy milk", author: "Mario" },
-  { text: "Do plumbing", author: "Luigi" }
+  { text: "Do plumbing", author: "Luigi" },
 ];
 
 localStorage.setItem("jobs", JSON.stringify(jobList));
@@ -816,7 +816,7 @@ const userObjects = {
   },
   logout() {
     console.log("User logged out");
-  }
+  },
 };
 
 console.log(userObjects.username);
@@ -854,7 +854,7 @@ class Admin extends User {
     this.role = role;
   }
   deleteUser(user) {
-    classUsers = classUsers.filter(u => {
+    classUsers = classUsers.filter((u) => {
       return u.username !== user.username;
     });
   }
@@ -871,15 +871,8 @@ const userTwo = new User("luigi", "luigi@example.com");
 const userThree = new Admin("Mat", "mathew.teague@yewtreeweb.co.uk", "Admin");
 
 console.log(userOne, userTwo, userThree);
-userOne
-  .login()
-  .incScore()
-  .incScore()
-  .logout();
-userTwo
-  .login()
-  .incScore()
-  .logout();
+userOne.login().incScore().incScore().logout();
+userTwo.login().incScore().logout();
 
 let classUsers = [userOne, userTwo, userThree];
 console.log(classUsers);
@@ -895,11 +888,11 @@ function Users(username, email) {
   this.email = email;
 }
 
-Users.prototype.login = function() {
+Users.prototype.login = function () {
   console.log(`${this.username} just logged in`);
   return this; // Alloe chaining
 };
-Users.prototype.logout = function() {
+Users.prototype.logout = function () {
   console.log(`${this.username} just logged out`);
   return this;
 };
@@ -910,7 +903,7 @@ function AdminUsers(username, email, role) {
 }
 
 AdminUsers.prototype = Object.create(Users.prototype);
-AdminUsers.prototype.deleteUsers = function() {};
+AdminUsers.prototype.deleteUsers = function () {};
 
 const usersOne = new Users("Alice", "alice@outlook.com");
 const usersTwo = new Users("Lily", "lily@outlook.com");
@@ -940,9 +933,9 @@ const addRecipe = (recipe, id) => {
   recipes.innerHTML += html;
 };
 
-const deleteRecipe = id => {
+const deleteRecipe = (id) => {
   const recipeTags = document.querySelectorAll(".recipes li");
-  recipeTags.forEach(recipe => {
+  recipeTags.forEach((recipe) => {
     if (recipe.getAttribute("data-id") === id) {
       recipe.remove();
     }
@@ -950,9 +943,9 @@ const deleteRecipe = id => {
 };
 
 // get documents
-const unsub = db.collection("recipes").onSnapshot(snapshot => {
+const unsub = db.collection("recipes").onSnapshot((snapshot) => {
   console.log(snapshot.docChanges());
-  snapshot.docChanges().forEach(change => {
+  snapshot.docChanges().forEach((change) => {
     const doc = change.doc;
     if (change.type === "added") {
       addRecipe(doc.data(), doc.id);
@@ -963,13 +956,13 @@ const unsub = db.collection("recipes").onSnapshot(snapshot => {
 });
 
 // add documents
-recipesForm.addEventListener("submit", e => {
+recipesForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const now = new Date();
   const recipe = {
     title: recipesForm.recipe.value,
-    created_at: firebase.firestore.Timestamp.fromDate(now)
+    created_at: firebase.firestore.Timestamp.fromDate(now),
   };
 
   db.collection("recipes")
@@ -977,7 +970,7 @@ recipesForm.addEventListener("submit", e => {
     .then(() => {
       console.log("recipe added!");
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
     });
 
@@ -985,7 +978,7 @@ recipesForm.addEventListener("submit", e => {
 });
 
 // delete documents
-recipes.addEventListener("click", e => {
+recipes.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     console.log("button clicked");
     const id = e.target.parentElement.getAttribute("data-id");
@@ -997,7 +990,7 @@ recipes.addEventListener("click", e => {
       .then(() => {
         console.log("recipe deleted!");
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
@@ -1019,7 +1012,7 @@ unsubBtn.addEventListener("click", () => {
 // put three dots in front of parmeters you want to become an array
 const double = (...nums) => {
   console.log(nums);
-  return nums.map(num => num * 2);
+  return nums.map((num) => num * 2);
 };
 
 const restResult = double(1, 3, 5, 7, 9, 2, 4, 6, 8);
@@ -1072,10 +1065,10 @@ console.log(ages);
 const ninjas = new Set([
   { name: "alice", age: 29 },
   { name: "lily", age: 29 },
-  { name: "mat", age: 29 }
+  { name: "mat", age: 29 },
 ]);
 
-ninjas.forEach(ninja => {
+ninjas.forEach((ninja) => {
   console.info(ninja.name, ninja.age);
 });
 
@@ -1102,3 +1095,5 @@ fam[symbolOne] = "Teague";
 fam[symbolTwo] = "Adam";
 
 console.log(fam);
+
+// console.log("testing");
